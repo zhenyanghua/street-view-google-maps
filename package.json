@@ -1,7 +1,7 @@
 {
-  "name": "store-locator",
+  "name": "street-view",
   "version": "0.0.1",
-  "description": "A google maps store locator demo with React",
+  "description": "A google maps street view demo with React",
   "main": "null",
   "scripts": {
     "start": "webpack-dev-server",
@@ -11,19 +11,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zhenyanghua/store-locator-google-maps.git"
+    "url": "git+https://github.com/zhenyanghua/street-view-google-maps.git"
   },
   "keywords": [
     "React",
-    "Store Locator",
+    "Street View",
     "Google Maps"
   ],
   "author": "Zhenyang Hua",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zhenyanghua/store-locator-google-maps/issues"
+    "url": "https://github.com/zhenyanghua/street-view-google-maps/issues"
   },
-  "homepage": "https://github.com/zhenyanghua/store-locator-google-maps#readme",
+  "homepage": "https://github.com/zhenyanghua/street-view-google-maps#readme",
   "devDependencies": {
     "babel-core": "^6.11.4",
     "babel-loader": "^6.2.4",
