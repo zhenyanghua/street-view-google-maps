@@ -24,7 +24,8 @@ var stores = {
           "Saturday: 9:30 AM – 9:30 PM",
           "Sunday: 10:00 AM – 8:00 PM"
         ],
-        "website": "http://www.tjmaxx.com/"
+        "website": "http://www.tjmaxx.com/",
+        "fake": 0
       }
     },
     {
@@ -50,7 +51,8 @@ var stores = {
           "Saturday: Open 24 hours",
           "Sunday: Open 24 hours"
         ],
-        "website": "https://www.wawa.com/?utm_campaign=Yext&utm_source=Yext&utm_medium=referral"
+        "website": "https://www.wawa.com/?utm_campaign=Yext&utm_source=Yext&utm_medium=referral",
+        "fake": 0
       }
     },
     {
@@ -76,7 +78,8 @@ var stores = {
           "Saturday: 6:00 AM – 11:00 PM",
           "Sunday: 6:00 AM – 11:00 PM"
         ],
-        "website": "http://www.citgo.com/"
+        "website": "http://www.citgo.com/",
+        "fake": 0
       }
     },
     {
@@ -102,7 +105,8 @@ var stores = {
           "Saturday: 8:00 AM – 12:00 PM",
           "Sunday: Closed"
         ],
-        "website": "http://www.usps.com/"
+        "website": "http://www.usps.com/",
+        "fake": 0
       }
     },
     {
@@ -128,7 +132,8 @@ var stores = {
           "Saturday: 8:00 AM – 5:30 PM",
           "Sunday: 8:00 AM – 4:00 PM"
         ],
-        "website": "http://producejunction.com/locations/"
+        "website": "http://producejunction.com/locations/",
+        "fake": 0
       }
     },
     {
@@ -154,7 +159,8 @@ var stores = {
           "Saturday: 8:00 AM – 10:00 PM",
           "Sunday: 8:00 AM – 10:00 PM"
         ],
-        "website": "http://www.cvs.com/store-locator/cvs-pharmacy-address/180+Greentree+Road+At…ch+And+Maple+Streets-Evesham-NJ-08053/storeid=7842?WT.mc_id=LS_GOOGLE_7842"
+        "website": "http://www.cvs.com/store-locator/cvs-pharmacy-address/180+Greentree+Road+At…ch+And+Maple+Streets-Evesham-NJ-08053/storeid=7842?WT.mc_id=LS_GOOGLE_7842",
+        "fake": 0
       }
     },
     {
@@ -180,7 +186,8 @@ var stores = {
           "Saturday: 6:00 AM – 2:00 AM",
           "Sunday: 6:00 AM – 1:00 AM"
         ],
-        "website": "http://www.sagedinernj.com/"
+        "website": "http://www.sagedinernj.com/",
+        "fake": 0
       }
     },
     {
@@ -206,7 +213,8 @@ var stores = {
           "Saturday: 6:00 AM – 11:00 PM",
           "Sunday: 6:00 AM – 11:00 PM"
         ],
-        "website": "http://www.mcdonalds.com/"
+        "website": "http://www.mcdonalds.com/",
+        "fake": 0
       }
     },
     {
@@ -232,7 +240,8 @@ var stores = {
           "Saturday: 4:00 AM – 12:00 AM",
           "Sunday: 4:00 AM – 12:00 AM"
         ],
-        "website": "https://www.lifetimefitness.com/en/clubs/mount-laurel-nj/your-lt.html"
+        "website": "https://www.lifetimefitness.com/en/clubs/mount-laurel-nj/your-lt.html",
+        "fake": 0
       }
     },
     {
@@ -258,7 +267,51 @@ var stores = {
           "Saturday: 8:00 AM – 7:30 PM",
           "Sunday: 8:00 AM – 7:30 PM"
         ],
-        "website": "https://www.uhaul.com/Locations/Truck-Rentals-near-Maple-Shade-NJ-08052/053230/"
+        "website": "https://www.uhaul.com/Locations/Truck-Rentals-near-Maple-Shade-NJ-08052/053230/",
+        "fake": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.10016,
+          39.933426
+        ]
+      },
+      "properties": {
+        "id": "d4b3d4e64b3a351e463ae21a34d096bd0078f776",
+        "formatted_address": "1262 Langham Ave",
+        "formatted_phone_number": "(856) 123-4567",
+        "name": "The Car Wash Max",
+        "website": "http://thecarwashmax.com",
+        "fake": 1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.0115025,
+          39.914129
+        ]
+      },
+      "properties": {
+        "id": "the-wild-rice",
+        "formatted_address": "22 New Jersey 70, Cherry Hill, NJ 08034",
+        "formatted_phone_number": "(856) 777-8888",
+        "name": "The Wild Rice",
+        "website": "http://thewildrice.com",
+        "fake": 2,
+        "suggestions": [{
+          icon: 'shopping basket',
+          name: 'Whole Foods Market'
+        }, {
+          icon: 'food',
+          name: 'Ming Garden Chinese Restaurant'
+        }]
       }
     }
   ]

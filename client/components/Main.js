@@ -8,6 +8,7 @@ require('semantic-ui-css/semantic')
 import List from './List'
 import InfoWindow from './InfoWindow'
 import stores from '../data/stores'
+import Legend from './Legend'
 
 class Main extends React.Component {
   render() {
@@ -16,13 +17,20 @@ class Main extends React.Component {
         <div className="ui top attached menu">
           <div className="item">
             <a href="/">
-              <img className="ui mini image" src="public/images/store.png"/>
+              <img className="ui mini image" src="public/images/store-red.png"/>
             </a>
           </div>
           <div className="ui item">
             <div className="ui red header">
               Places and Street View
             </div>
+          </div>
+          <div className="search item">
+            <div className="ui big transparent left icon input">
+              <input ref="search" type="text" placeholder="The Wild Rice" onKeyUp={(e) => this.search(e)}/>
+              <i className="search icon"></i>
+            </div>
+            <div className="results"></div>
           </div>
         </div>
         <div className="ui bottom attached segment">
@@ -36,6 +44,9 @@ class Main extends React.Component {
               </div>
               <div className="right eleven wide column">
                 <div ref="map" className="map-canvas">
+                </div>
+                <div className="pull-right">
+                  <Legend></Legend>
                 </div>
               </div>
             </div>
@@ -52,7 +63,7 @@ class Main extends React.Component {
       libraries: ['places', 'geometry']
     }).then(gmaps => {
       this.map = new gmaps.Map(ReactDOM.findDOMNode(this.refs.map), {
-        center: new gmaps.LatLng(39.8721117, -74.9794475),
+        center: new gmaps.LatLng(39.9153324,-75.0108807),
         zoom: 12,
         styles: this.setMapStyle()
       })
@@ -62,9 +73,12 @@ class Main extends React.Component {
         new gmaps.LatLng(39.002693, -84.799927),
         new gmaps.LatLng(39.430408, -84.102295)
       )
+      this.infoWindow = new google.maps.InfoWindow()
 
       gmaps.event.addListener(this.map, 'bounds_changed', () => this.updateListFromExtent())
     })
+
+    this.refs.search.value = 'The Wild Rice'
   }
 
   setMapStyle() {
@@ -85,12 +99,34 @@ class Main extends React.Component {
 
   loadData() {
     this.map.data.addGeoJson(this.props.stores, {idPropertyName: 'id'})
-    this.map.data.setStyle({
-      icon: {
-        url: 'public/images/store.png',
-        anchor: new google.maps.Point(16, 0),
-        scaledSize: new google.maps.Size(26, 26)
+    this.map.data.setStyle(feature => {
+      switch (feature.getProperty('fake')) {
+        case 0:
+          return {
+            icon: {
+              url: 'public/images/store-green.png',
+              anchor: new google.maps.Point(16, 0),
+              scaledSize: new google.maps.Size(26, 26)
+            }
+          }
+        case 1:
+          return {
+            icon: {
+              url: 'public/images/store-red.png',
+              anchor: new google.maps.Point(16, 0),
+              scaledSize: new google.maps.Size(26, 26)
+            }
+          }
+        case 2:
+          return {
+            icon: {
+              url: 'public/images/store-yellow.png',
+              anchor: new google.maps.Point(16, 0),
+              scaledSize: new google.maps.Size(26, 26)
+            }
+          }
       }
+
     })
     this.addPopup()
   }
@@ -140,21 +176,32 @@ class Main extends React.Component {
   }
 
   addPopup() {
-    this.infoWindow = new google.maps.InfoWindow()
     this.map.data.addListener('click', (event) => {
       const {feature} = event
-      const point = feature.getGeometry().get()
-      const content = document.createElement('div')
-      ReactDOM.render(
-        <InfoWindow key={feature.getProperty('id')}
-                    feature={feature}
-                    panorama={this.map.getStreetView()}
-                    {...this.props} />, content
-      )
-      this.infoWindow.setContent(content)
-      this.infoWindow.setPosition(point)
-      this.infoWindow.open(this.map)
+      this.openPopup(feature)
     })
+  }
+
+  openPopup(feature) {
+    const point = feature.getGeometry().get()
+    const content = document.createElement('div')
+    ReactDOM.render(
+      <InfoWindow key={feature.getProperty('id')}
+                  feature={feature}
+                  panorama={this.map.getStreetView()}
+                  {...this.props} />, content
+    )
+    this.infoWindow.setContent(content)
+    this.infoWindow.setPosition(point)
+    this.infoWindow.open(this.map)
+  }
+
+  search(e) {
+    if (e.key === 'Enter') {
+      console.log("open Info")
+      const feautre = this.map.data.getFeatureById('the-wild-rice')
+      this.openPopup(feautre)
+    }
   }
 
   componentDidUpdate() {
