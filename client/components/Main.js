@@ -25,13 +25,13 @@ class Main extends React.Component {
               Places and Street View
             </div>
           </div>
-          <div className="search item">
-            <div className="ui big transparent left icon input">
-              <input ref="search" type="text" placeholder="The Wild Rice" onKeyUp={(e) => this.search(e)}/>
-              <i className="search icon"></i>
-            </div>
-            <div className="results"></div>
-          </div>
+          {/*<div className="search item">*/}
+            {/*<div className="ui big transparent left icon input">*/}
+              {/*<input ref="search" type="text" placeholder="The Wild Rice" onKeyUp={(e) => this.search(e)}/>*/}
+              {/*<i className="search icon"></i>*/}
+            {/*</div>*/}
+            {/*<div className="results"></div>*/}
+          {/*</div>*/}
         </div>
         <div className="ui bottom attached segment">
           <div className="ui stackable grid">

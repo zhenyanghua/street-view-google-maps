@@ -286,7 +286,17 @@ var stores = {
         "formatted_phone_number": "(856) 123-4567",
         "name": "The Car Wash Max",
         "website": "http://thecarwashmax.com",
-        "fake": 1
+        "fake": 1,
+        "related": [{
+          icon: "money",
+          name: "Bob's Fast Cash"
+        }, {
+          icon: "money",
+          name: "Bob's Title Loan"
+        }, {
+          icon: "shopping bag",
+          name: "The best deal, Co."
+        }]
       }
     },
     {
